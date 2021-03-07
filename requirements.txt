@@ -1,1 +1,3 @@
-selenium
+pydub
+requests
+SpeechRecognition
