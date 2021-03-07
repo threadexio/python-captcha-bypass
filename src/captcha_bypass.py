@@ -1,8 +1,19 @@
+#
+# Python Captcha Bypass
+# https://github.com/threadexio/python-captcha-bypass
+#
+# GNU General Public License v3.0
+#
+
 import speech_recognition as sr
 from pydub import AudioSegment
 import requests
 import time
 import os
+
+# driver: webdriver
+# iframe: Captcha iframe
+# _pause: Secs to wait between each click
 
 def solve_captcha(driver, iframe, _pause = 2) -> bool:
 	mp3_file = "_tmp.mp3"
@@ -25,14 +36,7 @@ def solve_captcha(driver, iframe, _pause = 2) -> bool:
 	driver.switch_to.default_content()
 
 	try:
-
-		# Find the correct iframe and switch to it
-		iframes = driver.find_elements_by_tag_name("iframe")
-		for x in iframes:
-			if x.get_attribute("title") == "recaptcha challenge":
-				driver.switch_to.frame(x)
-
-		time.sleep(_pause)
+		driver.switch_to.frame( driver.find_element_by_xpath('//iframe[@title="recaptcha challenge"]') )
 
 		driver.find_element_by_id("recaptcha-audio-button").click()
 
@@ -60,11 +64,7 @@ def solve_captcha(driver, iframe, _pause = 2) -> bool:
 		# Click the "Verify" button to complete
 		driver.find_element_by_id("recaptcha-verify-button").click()
 
-		# Cleanup created files
-		if os.path.exists(mp3_file):
-			os.remove(mp3_file)
-		if os.path.exists(wav_file):
-			os.remove(wav_file)
+		__cleanup([ mp3_file, wav_file ])
 
 		# Return the text used for the answer
 		return text
@@ -72,11 +72,11 @@ def solve_captcha(driver, iframe, _pause = 2) -> bool:
 	except Exception as e:
 		# If we encounter the "Your computer is sending automated requests..."
 		# or something that doesn't allow the code to continue return false
-
-		# Cleanup created files
-		if os.path.exists(mp3_file):
-			os.remove(mp3_file)
-		if os.path.exists(wav_file):
-			os.remove(wav_file)
+		__cleanup([ mp3_file, wav_file ])
 
 		return False
+
+def __cleanup(files):
+	for x in files:
+		if os.path.exists(x):
+			os.remove(x)
