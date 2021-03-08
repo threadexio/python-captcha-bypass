@@ -32,6 +32,8 @@ solve_captcha(browser, captcha)
 
 `captcha`: is a reference to the CAPTCHA's iframe
 
+# FOR EDUCATIONAL PURPOSES ONLY. WE ARE NOT RESPONSIBLE FOR DAMAGE YOU MAY CAUSE.
+
 -------
 
 ## See `src/test.py` for a code example
