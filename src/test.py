@@ -2,20 +2,19 @@ from selenium import webdriver
 from time import sleep
 import selenium
 
-from selenium.webdriver.firefox.options import Options
-from selenium.webdriver import Firefox
-
 from captcha_bypass import solve_captcha
 
 # Selenium browser setup
-capabilities = webdriver.DesiredCapabilities.FIREFOX
-capabilities["marionette"] = True
-options = Options()
+options = webdriver.ChromeOptions()
+
 
 # Headless?
 #options.add_argument("--headless")
 
-browser = webdriver.Firefox(executable_path="../files/geckodriver", capabilities=capabilities, options=options)
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+
+browser = webdriver.Chrome(options=options)
 
 browser.get("https://www.google.com/recaptcha/api2/demo")
 
