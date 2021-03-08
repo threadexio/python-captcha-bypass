@@ -3,7 +3,7 @@
 A small and harmless utility written in Python used to solve CAPTCHAs with Selenium.
 
 # Tests
-[![Build Status](https://travis-ci.com/threadexio/python-captcha-bypass.svg?branch=master)](https://travis-ci.com/threadexio/python-captcha-bypass)
+[![Build Status](https://www.travis-ci.com/threadexio/python-captcha-bypass.svg?token=7LCRY5xyiyHJ1KpmNGdg&branch=master)](https://www.travis-ci.com/threadexio/python-captcha-bypass)
 
 # How to use
 
