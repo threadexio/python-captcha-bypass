@@ -36,4 +36,5 @@ solve_captcha(browser, captcha)
 
 ## See `src/test.py` for a code example
 
-# FOR EDUCATIONAL PURPOSES ONLY. WE ARE NOT RESPONSIBLE FOR DAMAGE YOU MAY CAUSE.
+#### Legal Disclaimer
+This was made for educational purposes only, noone directly involved in this project is responsible for any damages caused. You are responsible for your actions
