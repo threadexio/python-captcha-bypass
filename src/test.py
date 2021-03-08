@@ -26,4 +26,11 @@ for iframe in iframes:
 	if iframe.get_attribute("src").startswith("https://www.google.com/recaptcha/api2/anchor"):
 		captcha = iframe
 
-print(solve_captcha(browser, captcha))
+result = solve_captcha(browser, captcha)
+
+print(result)
+# Travis CI stuff
+if result:
+	exit(0)
+else:
+	exit(1)
