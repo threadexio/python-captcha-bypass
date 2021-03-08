@@ -6,7 +6,7 @@
 #
 
 import speech_recognition as sr
-from pydub import AudioSegment
+import subprocess
 import requests
 import time
 import os
@@ -48,8 +48,11 @@ def solve_captcha(driver, iframe, _pause = 2) -> bool:
 			r = requests.get(link, allow_redirects=True)
 			f.write(r.content)
 			f.close()
-			sound = AudioSegment.from_mp3(mp3_file)
-			sound.export(wav_file, format="wav")
+
+		# Just call ffmpeg directly instead of using pydub
+		# Also set stdin, stdout, stderr to /dev/null or nul
+		with open(os.devnull, "w") as f:
+			subprocess.Popen(["ffmpeg", "-i", mp3_file, wav_file], stdin=f, stdout=f, stderr=f).communicate()
 
 		# Using google's own api against them
 		recognizer = sr.Recognizer()
@@ -73,7 +76,6 @@ def solve_captcha(driver, iframe, _pause = 2) -> bool:
 		# If we encounter the "Your computer is sending automated requests..."
 		# or something that doesn't allow the code to continue return false
 		__cleanup([ mp3_file, wav_file ])
-
 		return False
 
 def __cleanup(files):
