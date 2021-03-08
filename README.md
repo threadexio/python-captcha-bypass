@@ -18,6 +18,25 @@ git clone https://github.com/threadexio/python-captcha-bypass
 
 -------
 
+# Dependencies:
+- python3
+
+- chromium (or Google Chrome, others might work but are not tested)
+  * Windows:  `https://www.chromium.org/getting-involved/download-chromium`
+  * Linux:
+    - Debian-based: `sudo apt-get install chromium`
+    - Arch-based:   `sudo pacman -S chromium`
+    - Fedora-based: `sudo dnf install chromium`
+
+- ffmpeg
+  * Windows:  `https://www.ffmpeg.org/download.html`
+  * Linux:
+    - Debian-based: `sudo apt-get install ffmpeg`
+    - Arch-based:   `sudo pacman -S ffmpeg`
+    - Fedora-based: `sudo dnf install ffmpeg`
+
+-------
+
 # Docs
 
 ```python
