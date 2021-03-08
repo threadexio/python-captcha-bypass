@@ -76,6 +76,7 @@ def solve_captcha(driver, iframe, _pause = 2) -> bool:
 		# If we encounter the "Your computer is sending automated requests..."
 		# or something that doesn't allow the code to continue return false
 		__cleanup([ mp3_file, wav_file ])
+		print(e)
 		return False
 
 def __cleanup(files):
