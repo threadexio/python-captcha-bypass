@@ -1,0 +1,11 @@
+language: python
+
+services:
+  - docker
+
+before_install:
+  - docker build -t captcha-bypass .
+  - docker images
+
+script:
+  - [ $(docker run -it captcha-bypass) != "False" ]
