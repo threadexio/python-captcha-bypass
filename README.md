@@ -1,9 +1,9 @@
 # python-captcha-bypass
 
-A small and harmless utility written in Python used to solve CAPTCHAs with Selenium.
+[![License](https://img.shields.io/github/license/threadexio/python-captcha-bypass?style=for-the-badge)](https://github.com/threadexio/python-captcha-bypass/blob/master/LICENSE)
+[![Tests](https://img.shields.io/travis/com/threadexio/python-captcha-bypass?label=Tests&logo=python&logoColor=yellow&style=for-the-badge)](https://app.travis-ci.com/github/threadexio/python-captcha-bypass)
 
-# Tests
-[![Build Status](https://www.travis-ci.com/threadexio/python-captcha-bypass.svg?token=7LCRY5xyiyHJ1KpmNGdg&branch=master)](https://www.travis-ci.com/threadexio/python-captcha-bypass)
+A small and harmless utility written in Python used to solve CAPTCHAs with Selenium.
 
 # How to use
 
@@ -41,19 +41,14 @@ git clone https://github.com/threadexio/python-captcha-bypass
 
 ```python
 solve_captcha(browser, captcha)
-#				/\		  /\
-#				||		  ||
-#			Webdriver	 CAPTCHA iframe
-#
 ```
-### Where:
 `browser`: is the active webdriver instance (`selenium.webdriver`)
 
 `captcha`: is a reference to the CAPTCHA's iframe
 
+### See `src/test.py` for a code example
+
 -------
 
-## See `src/test.py` for a code example
-
-#### Legal Disclaimer
-This was made for educational purposes only, noone directly involved in this project is responsible for any damages caused. You are responsible for your actions
+### Legal Disclaimer
+This was made for educational purposes only, nobody directly involved in this project is responsible for any damages caused. You are responsible for your actions

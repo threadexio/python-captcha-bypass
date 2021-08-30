@@ -1,9 +1,7 @@
 FROM alpine
 
-ENV DISPLAY :99
-
 RUN apk update
-RUN apk add xvfb chromium chromium-chromedriver ffmpeg python3 py3-pip flac
+RUN apk add chromium chromium-chromedriver ffmpeg python3 py3-pip flac
 
 COPY . /mnt/
 
