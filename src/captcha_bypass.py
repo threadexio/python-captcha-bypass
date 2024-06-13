@@ -72,7 +72,7 @@ def solve_captcha(driver: selenium.webdriver, iframe, t=5):
 
     try:
         driver.switch_to.frame(wait_for_elem(
-            driver, By.XPATH, '//iframe[@title="recaptcha challenge"]', t))
+            driver, By.XPATH, "//iframe[contains(@title, 'recaptcha')]", t))
 
         # Get the audio challenge instead
         wait_for_elem(driver, By.ID, "recaptcha-audio-button", t).click()
